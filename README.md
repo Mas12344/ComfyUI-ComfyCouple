@@ -1,3 +1,11 @@
+update
+
+2025/03/07
+Added ComfyCoupleRegion, ComfyCoupleMask nodes that can take masks as inputs.
+![image](https://github.com/user-attachments/assets/dfd11687-a89d-49b0-be99-6bc6f1b92aaf)
+![image](https://github.com/user-attachments/assets/c33dd781-99b1-4b90-b08f-c26afd9f909f)
+
+
 # Comfy Couple
 
 ## What is
