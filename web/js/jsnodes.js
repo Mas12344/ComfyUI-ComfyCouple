@@ -15,20 +15,12 @@ app.registerExtension({
 				this._type = "COUPLE_REGION"
 				this.inputs_offset = nodeData.name.includes("selective")?1:0
 				this.addWidget("button", "Update inputs", null, () => {
-					if (!this.inputs) {
-						this.inputs = [];
-					}
-					const target_number_of_inputs = this.widgets.find(w => w.name === "inputcount")["value"] + 2;
-						if(target_number_of_inputs===this.inputs.length)return; // already set, do nothing
+					this.inputs = this.inputs.slice(0,this.inputs_offset+2)
 
-						if(target_number_of_inputs < this.inputs.length){
-							for(let i = this.inputs.length; i>=this.inputs_offset+target_number_of_inputs; i--)
-									this.removeInput(i)
-						}
-						else{
-							for(let i = this.inputs.length+1-this.inputs_offset; i <= target_number_of_inputs; ++i)
-								this.addInput(`region_${i-2}`, this._type)
-						}
+					const target_number_of_inputs = this.widgets.find(w => w.name === "inputcount")["value"];
+					for(let i = 0; i < target_number_of_inputs; ++i)
+						this.addInput(`region_${i+1}`, this._type)
+
 					});
 				}
 				break;
